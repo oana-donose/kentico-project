@@ -1,0 +1,54 @@
+﻿<div class="ChatRoomUser {{if IsOnline}}OnlineUser{{else}}OfflineUser{{/if}}">
+  {{if KickUserPerm}}
+      <div class="PermaKickButton">
+              <a href="#" onclick="${KickUserPerm}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/permakick.png")|(user)administrator|(hash)6c564555ba5cbe324c45ed8b582e289667d15fe2400872e2624e407d9bb98cf7%}' title="{$chat.kickuserperm$}" alt="{$chat.kickuserperm$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  {{if KickUser}}
+      <div class="KickButton">
+              <a href="#" onclick="${KickUser}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/kick.png")|(user)administrator|(hash)701a287d9c12925250ca466f6c6f2a37e8e04f96dea09ba881c02a2e41171300%}' title="{$chat.kick$}" alt="{$chat.kick$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  {{if DeleteAdmin}}
+      <div class="DeleteAdminButton">
+              <a href="#" onclick="${DeleteAdmin}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent_delete.png")|(user)administrator|(hash)423a74a0759ef929edee8a36c99afb22fee593be35ac07320427a8e763bb657a%}' title="{$chat.deleteadmin$}" alt="{$chat.deleteadmin$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  {{if AddAdmin}}
+      <div class="AddAdminButton">
+              <a href="#" onclick="${AddAdmin}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent_add.png")|(user)administrator|(hash)3e3842ee3c07fef7a11a9770767f5f2c6808827a5f48c04b5dc10697ba689a2d%}' title="{$chat.addadmin$}" alt="{$chat.addadmin$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  <div class="ChatRoomUserName"> <!-- Do not change this class name -->
+    {{if IsOnline}}
+        {{if IsCurrentUser}}<span class="CurrentUser"><strong>${Nickname}</strong></span> 
+        {{else}}
+            {{if OneOnOneChat}}
+                <a href="#" onclick="${OneOnOneChat}" target="_blank">${Nickname}</a>
+            {{else}}
+                ${Nickname}
+            {{/if}}
+        {{/if}}
+    {{else}}
+        <span>
+            <a href="#" onclick="return false;" title="{$chat.notpresent$}" style="text-decoration:none; cursor:default">${Nickname}</a>
+        </span>
+    {{/if}} 
+    {{if IsAdmin && !IsCreator}} <span class="UserAdmin"> <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent.png")|(user)administrator|(hash)294772bf3f30bd5cf84754531a4136c97a161f4ae90d5bb81302510c546b9280%}' title="{$chat.livesite.admin$}" alt="{$chat.livesite.admin$}" width="12px" height="12px"/></span>{{/if}}
+    {{if IsCreator}} <span class="UserCreator"> <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent_creator.png")|(user)administrator|(hash)044f4cf6368c34565b21a81ef495fc247cf2ee3dc447965a3b54eba1fc3e8459%}' title="{$chat.livesite.creator$}" alt="{$chat.livesite.creator$}" width="12px" height="12px"/></span>{{/if}}
+  </div>
+</div>
+
+

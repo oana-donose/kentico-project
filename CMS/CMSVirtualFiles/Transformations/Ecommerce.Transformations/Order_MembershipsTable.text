@@ -1,0 +1,1 @@
+﻿{% " - " + GetResourceString(MembershipDisplayName) + " (" + (String.IsNullOrEmpty(ValidTo) ? "never expires" : "expires after " + GetCurrentDateTimeString(Format(ValidTo,"{0:G}"), Customer.CustomerUser.UserName)) + ")" |(user)administrator|(hash)b49f35b0ffc842ee62ccaf0176ea0148d267bc198c208cebae97d1f35d20c997%} <br />

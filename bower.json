@@ -1,0 +1,21 @@
+{
+  "name": "Essilor",
+  "description": "",
+  "main": "",
+  "authors": [
+    "MMT Digital"
+  ],
+  "license": "Copyright 2016 MMT Digital",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery-legacy": "jquery#1.10",
+    "jquery-modern": "jquery#2"
+  }
+}

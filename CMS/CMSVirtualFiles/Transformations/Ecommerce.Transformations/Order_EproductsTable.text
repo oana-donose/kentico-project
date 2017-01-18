@@ -1,0 +1,3 @@
+﻿<br />
+- {%GetResourceString(OrderItemSKUName)%} (<a href="{%GetEproductUrl(Token, FileName, OrderSiteID)%}" target="_blank" >{%FileName%}</a>)
+{% String.IsNullOrEmpty(OrderItemValidTo) ? "never expires" : "expires after " + GetCurrentDateTimeString(Format(OrderItemValidTo, "{0:G}"), Customer.CustomerUser.UserName)|(user)administrator|(hash)34bb5bb27d6ca5f3264c2b902aa0011353b9689be8c68a37925d1a45450722cc%}

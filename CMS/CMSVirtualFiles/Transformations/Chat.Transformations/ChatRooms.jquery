@@ -1,0 +1,61 @@
+﻿<div class="ChatRoomListItem">
+        {{if Abandon}}
+        <div class="AbandonButton">
+        	<a href="#" onclick="${Abandon}">
+                	<img src='{%GetImageUrl("CMSModules/CMS_Chat/delete.png")|(user)administrator|(hash)b7ded2959c6929d5e79a909cb5434eb211abbaee5409d5f4fa291a21fde9d5b3%}' alt="{$chat.abandon$}" title="{$chat.abandon$}" width="12px" height="12px"/>
+                </a>
+        </div>        
+        {{/if}}
+        
+        {{if Delete}}
+        <div class="DeleteButton">
+        	<a href="#" onclick="${Delete}">
+                	<img src='{%GetImageUrl("CMSModules/CMS_Chat/reject.png")|(user)administrator|(hash)f9248e2ae2fa8476ea3f7bb0f6095ef6f05fcbd0335ef9d3ed722227bd3636eb%}' alt="{$general.disable$}" title="{$general.disable$}" width="12px" height="12px"/>
+                </a>
+        </div>        
+        {{/if}}
+        
+        {{if Edit}}
+        <div class="EditButton">
+        	<a href="#" onclick="${Edit}">
+                	<img src='{%GetImageUrl("CMSModules/CMS_Chat/edit.png")|(user)administrator|(hash)6387078f83335dfcc4221a1be166fdd338d85375886ecd3ff4995da3f5aafa0b%}' alt="{$general.edit$}" title="{$general.edit$}" width="12px" height="12px"/>
+                </a>
+        </div>        
+        {{/if}}
+        
+        <div class="ChatRoomTitle"><!-- Do not change this class name -->
+	    {{if IsCurrentRoom}}
+        	<strong><span style="color: blue;">
+        {{else}}
+        	<a href="#" title="{$chat.enter$}" class="JoinRoom"> <!-- Do not change this class name -->
+                {{if IsCurrentUserIn}}
+                	<strong>
+                {{/if}}
+        {{/if}}
+	        
+        ${DisplayName}
+        (${OnlineUsersCount})
+                
+        {{if IsCurrentRoom}}
+        	</span></strong>
+        {{else}}
+        	{{if IsCurrentUserIn}}
+        		</strong>
+            {{/if}}
+            </a>
+        {{/if}}  
+  
+        <span class="ChatRoomInfoIcons">   
+        {{if IsPrivate}}
+            <img src='{%GetImageUrl("CMSModules/CMS_Chat/private_room16.png")|(user)administrator|(hash)09e3656422c138a96e468487b378066e1d620c6c42d97d61f548d2fdd75436bc%}' alt="{$chat.privateroom$}" title="{$chat.privateroom$}" width="12px" height="12px"/>
+        {{/if}}
+        {{if HasPassword}}
+            <img src='{%GetImageUrl("CMSModules/CMS_Chat/password.png")|(user)administrator|(hash)f05386d70f69af34a1e9603ea6f7a46373201165175b881edef63b30521713af%}' alt="{$chat.passwordprotected$}" title="{$chat.passwordprotected$}" width="12px" height="12px"/>
+        {{/if}}
+        </span>
+        </div>
+        
+        {{if Description != ""}}
+        	<div class="ChatRoomListItemDescription">${Description}</div>
+        {{/if}}
+</div> 
