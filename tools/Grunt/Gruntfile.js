@@ -1,13 +1,11 @@
-var SITE_DOMAIN = 'local.SiteName.co.uk',
+var SITE_DOMAIN = 'local.sitename.com',
     SITE_URL = 'https://' + SITE_DOMAIN;
 
 var SASS_FILES = {
-    // DESTINATION FILE : [ SOURCE FILES ]
-    '<%= pkg.assetsDir %>/css/SiteName/SiteName.css' : ['<%= pkg.sourceDir %>/scss/<%= pkg.name %>/<%= pkg.name %>.scss']
+    '<%= pkg.assetsDir %>/css/<%= pkg.name %>/<%= pkg.name %>.min.css' : ['<%= pkg.sourceDir %>/scss/<%= pkg.name %>/<%= pkg.name %>.scss']
 };
 
 var JAVASCRIPT_FILES = {
-    // DESTINATION FILE : [ SOURCE FILES ]
     '<%= pkg.assetsDir %>/js/<%= pkg.name %>/<%= pkg.name %>.min.js': [
         '<%= pkg.sourceDir %>/js/<%= pkg.name %>/*.js',
         '<%= pkg.sourceDir %>/js/<%= pkg.name %>/**/*.js'
@@ -30,7 +28,7 @@ var WATCH_JAVASCRIPT_FILES = [
 
 var WATCH_JAVASCRIPT_SPEC_FILES = [
     '<%= pkg.sourceDir %>/tests/js/**/*.js'
-]
+];
 
 var WATCH_SASS_FILES = [
     '<%= pkg.sourceDir %>/scss/<%= pkg.name %>/**/*.scss'
@@ -40,20 +38,18 @@ var WATCH_WEBFONT_FILES = [
     '<%= pkg.sourceDir %>/icons/<%= pkg.name %>/*.svg'
 ];
 
-var es2015 = require('babel-preset-es2015');
+var babel = require('rollup-plugin-babel');
 
 module.exports = function(grunt) {
     var cwd = process.cwd();
-
-    // load grunt tasks as they are required
+    grunt.file.setBase('../..');
+    
     require('jit-grunt')(grunt, {
         sasslint: 'grunt-sass-lint'
     });
 
-    // time the events
     require('time-grunt')(grunt);
 
-    // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -98,14 +94,14 @@ module.exports = function(grunt) {
         watch: {
             options: {
                 interrupt: true,
-                livereload: true,
+                livereload: false,
                 files: ['<%= pkg.assetsDir %>/css/**/*.css'],
                 cliArgs: ['--gruntfile', require('path').join(cwd, 'Gruntfile.js')], // Here we are resetting the current working dir
             },
 
             javascript: {
                 files: WATCH_JAVASCRIPT_FILES,
-                tasks: ['concat', 'babel']
+                tasks: ['rollup', 'concat']
             },
 
             specs: {
@@ -134,10 +130,11 @@ module.exports = function(grunt) {
                         require('autoprefixer')({
                             browsers: 'last 5 versions' // add vendor prefixes
                         }),
+                        require("postcss-font-smoothing"),
                         require('cssnano')() // minify the result
                     ]
                 },
-                src: '<%= pkg.assetsDir %>/css/<%= pkg.name %>/<%= pkg.name %>.css',
+                src: '<%= pkg.assetsDir %>/css/<%= pkg.name %>/<%= pkg.name %>.min.css',
                 dest: '<%= pkg.assetsDir %>/css/<%= pkg.name %>/<%= pkg.name %>.min.css'
             },
             
@@ -162,7 +159,7 @@ module.exports = function(grunt) {
 
         karma: {
             options: {
-                configFile: '../../source/tests/jasmine/config/karma.conf.js'
+                configFile: '<%= pkg.sourceDir %>/tests/jasmine/config/karma.conf.js'
             },
             local: {
                 plugins: [
@@ -174,18 +171,11 @@ module.exports = function(grunt) {
 
         concat: {
             dist: {
-                files: JAVASCRIPT_FILES
-            },
-        },
-
-        babel: {
-            options: {
-                sourceMap: true,
-                presets: [es2015]
-            },
-            dists: {
                 files: {
-                    '<%= pkg.assetsDir %>/js/<%= pkg.name %>/<%= pkg.name %>.min.js': '<%= pkg.assetsDir %>/js/<%= pkg.name %>/<%= pkg.name %>.min.js'
+                    '<%= pkg.assetsDir %>/js/<%= pkg.name %>/<%= pkg.name %>.min.js': [
+                        '<%= pkg.sourceDir %>/js/<%= pkg.name %>/libs/*.js',
+                        '<%= pkg.assetsDir %>/js/<%= pkg.name %>/<%= pkg.name %>.min.js',
+                    ]
                 }
             }
         },
@@ -194,7 +184,8 @@ module.exports = function(grunt) {
             unit: {
                 src:'<%= pkg.assetsDir %>/js/<%= pkg.name %>/<%= pkg.name %>.min.js',
                 options: {
-                    specs: '<%= pkg.sourceDir %>/tests/js/*.js'
+                    specs: '<%= pkg.sourceDir %>/tests/js/*.js',
+                    vendor: '<%= pkg.sourceDir %>/tests/js/vendor/*.js'
                 }
             },
         },
@@ -216,30 +207,49 @@ module.exports = function(grunt) {
         exec: {
             kentico: {
                 stdout: true,
-                command: 'CMS\\bin\\ContinuousIntegration.exe -r'
+                command: '<%= pkg.websiteRootDir %>/bin/ContinuousIntegration.exe -r'
             }
         },
 
         sasslint: {
             options: {
-                configFile: '.scss-lint.yml',
+                configFile: '.scsslint.yml',
                 // formatter: 'junit',
                 // outputFile: 'report.xml'
             },
             target: '<%= pkg.sourceDir %>/scss/<%= pkg.name %>/**/*.scss'
-        }
+        },
+
+
+        rollup: {
+            options: {
+                plugins: function () {
+                    return [
+                        babel({
+                            exclude: 'node_modules',
+                            presets: ['es2015-rollup']
+                        }),
+                    ];
+                }
+            },
+            main: {
+                files: [{
+                    dest: '<%= pkg.assetsDir %>/js/<%= pkg.name %>/<%= pkg.name %>.min.js',
+                    src: '<%= pkg.sourceDir %>/js/<%= pkg.name %>/<%= pkg.name %>.js'
+                }]
+            }
+        },
 
     });
 
-    // Default task.
-    grunt.registerTask('default', ['concat', 'babel', 'forced-webfont', 'sass', 'postcss:main', 'watch']);
+    grunt.registerTask('default', ['rollup', 'concat', 'forced-webfont', 'sasslint', 'sass', 'postcss:main', 'watch']);
     grunt.registerTask('criticalcss', ['critical', 'postcss:critical']);
-    grunt.registerTask('lint', ['sasslint']);
-    grunt.registerTask('dist', ['concat', 'babel', 'forced-webfont', 'sass', 'postcss']);
+    grunt.registerTask('dist', ['rollup', 'concat', 'forced-webfont', 'sasslint', 'sass', 'postcss:main']);
 
     grunt.registerTask('forced-webfont', 'Forces webfont task', function () {
         var tasks = ['webfont'];
         grunt.option('force', true);
         grunt.task.run(tasks);
     });
-}; 
+
+};

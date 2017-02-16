@@ -1,6 +1,6 @@
 console.log("The JavaScript has loaded");
 
-class Essilor {
+class SiteName {
     constructor() {
         new Navigation();
     }

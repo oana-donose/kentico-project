@@ -1,1 +1,0 @@
-This should follow the MMTDigital-Sass-Structure avaliable on BitBucket
