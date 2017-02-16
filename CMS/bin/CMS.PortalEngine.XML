@@ -1777,6 +1777,13 @@
             <param name="cloneZones">If true, the zone instances are cloned</param>
             <param name="copyMacroTable">Indicates whether macro values should be cloned</param>
         </member>
+        <member name="M:CMS.PortalEngine.PageTemplateInstance.UpdateParentTemplateInstance(CMS.PortalEngine.WebPartZoneInstance,CMS.PortalEngine.PageTemplateInstance)">
+            <summary>
+            Sets <see cref="P:CMS.PortalEngine.WebPartZoneInstance.ParentTemplateInstance"/> property of given <paramref name="zoneInstance"/> and all its zone variants to specified <paramref name="templateInstance"/>.
+            </summary>
+            <param name="zoneInstance">Web part zone instance to be updated</param>
+            <param name="templateInstance">Target page template instance</param>
+        </member>
         <member name="M:CMS.PortalEngine.PageTemplateInstance.GetZone(System.String,System.Int32)">
             <summary>
             Returns the zone instance with specified ID or null when not found.

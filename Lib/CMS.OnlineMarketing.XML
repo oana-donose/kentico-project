@@ -789,16 +789,16 @@
             Performs logging of the hit.
             </summary>
         </member>
-        <member name="T:CMS.OnlineMarketing.CrawlerCheckerActivityLogFilter">
+        <member name="T:CMS.OnlineMarketing.ContactProcessingCheckerActivityLogFilter">
             <summary>
-            Filters out logging for crawlers.
+            Filters out logging when processing of contacts (and therefore the activities) cannot continue.
             </summary>
         </member>
-        <member name="M:CMS.OnlineMarketing.CrawlerCheckerActivityLogFilter.IsDenied">
+        <member name="M:CMS.OnlineMarketing.ContactProcessingCheckerActivityLogFilter.IsDenied">
             <summary>
             Filters out logging for crawlers.
             </summary>
-            <returns>Returns <c>true</c> if logging should be filtered out, because current request was made by crawler. Otherwise returns <c>false</c>.</returns>
+            <returns>Returns <c>true</c> if logging should be filtered out, because processing of contacts cannot continue. Otherwise returns <c>false</c>.</returns>
         </member>
         <member name="T:CMS.OnlineMarketing.CurrentUserEnabledTrackingFilter">
             <summary>
