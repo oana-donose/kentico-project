@@ -1,2 +1,6 @@
 $dinnerplate: '\f101';
-.ico-dinnerplate{ &::before { content: '\f101'; }}
+.ico-dinnerplate {
+  &::before {
+    content: '\f101';
+  }
+}
