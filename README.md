@@ -1,5 +1,7 @@
 # SiteName website - WORKING PROGRESS 17/01/2017
 
+![http://www.kentico.com/getattachment/Product/Kentico-10/Facebook-Kentico-10-LP-1200x630-px.png?lang=en-US](Kentico 10)
+
 ### Background
 
 SiteName is a ... 
