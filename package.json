@@ -10,6 +10,10 @@
   "engines": {
     "node": ">= 0.10.0"
   },
+  "scripts": {
+    "build": "grunt dist --gruntfile tools/grunt/Gruntfile.js",
+    "test": "grunt karma --gruntfile tools/grunt/Gruntfile.js"
+  },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-preset-es2015-rollup": "^3.0.0",
