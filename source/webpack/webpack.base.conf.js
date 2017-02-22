@@ -3,12 +3,12 @@ var utils = require('./utils')
 var config = require('./config')
 
 function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '../..', dir)
 }
 
 module.exports = {
   entry: {
-    app: './js/SiteName/sitename.js'
+    sitename: './js/SiteName/sitename.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -34,7 +34,7 @@ module.exports = {
       {
         test: /\.(js)$/,
         loader: 'eslint-loader',
-        enforce: "pre",
+        enforce: 'pre',
         include: [resolve('source'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
