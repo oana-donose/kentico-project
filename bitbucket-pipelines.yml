@@ -10,5 +10,6 @@ pipelines:
     - step:
         script: # Modify the commands below to build your repository.
           - npm install -g --silent grunt-cli
-          - cd source && npm install --silent
-          - cd source && npm run build
+          - cd source 
+          - npm install --silent
+          - npm run build
