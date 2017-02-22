@@ -9,27 +9,46 @@ SiteName is a ...
 ## Getting Started
 
 ### Front-end dependencies
-You will need the following software packages installed in order to compile all front-end assets. This includes things such as SASS, JavaScript, etc. If the site ever looks a little weird, always make sure you have re-compiled with Grunt (more on Grunt below!).
+You will need the following software packages installed in order to compile all front-end assets. 
+This includes things such as SASS, JavaScript, etc. If the site ever looks a little weird, always make sure you have compiled the front-end assets.
 
-* [NodeJS (minimum version 4.5)](https://nodejs.org/en/)
-* [Grunt](http://gruntjs.com/getting-started)
-* [Ruby](http://rubyinstaller.org/downloads/)
-* [SASS](http://sass-lang.com/)
+* [NodeJS (minimum version 4.0)](https://nodejs.org/en/)
+
+This version uses Webpack to compile Front-End assets.  It has support for:
+
+* SASS
+* PostCSS + Autoprefixer
+* Babel + ES6 JavaScript
 
 ### Compiling assets
-#### Install node_modules
-Grunt (our task runner), relies on various npm packages to run. First, make sure you have node modules installed (you will only have to do this once). From the terminal / command prompt:
-```sh
-$ cd sitename/tools/Grunt
-$ npm install
+
+#### First Run:
+
+```
+cd source
+npm install
 ```
 
-#### Grunt
-Once you've downloaded and installed all the above, you'll need to run grunt:
+#### Compiling for production
 
-```sh
-$ cd sitename/tools/Grunt
-$ grunt
+```
+cd source
+npm run build
+```
+
+#### Compiling for development
+
+```
+cd source
+npm run dev
+```
+
+#### Running Tests
+
+```
+cd source
+npm run test
+npm run lint
 ```
 
 ### Environments / Access Restrictions / HOSTS Entries
