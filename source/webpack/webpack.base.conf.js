@@ -8,7 +8,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    sitename: './js/SiteName/sitename.js'
+    'sitename.min': './js/SiteName/sitename.js'
   },
   output: {
     path: config.build.assetsRoot,
