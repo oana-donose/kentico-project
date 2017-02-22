@@ -3,7 +3,7 @@ var utils = require('./utils')
 var config = require('./config')
 
 function resolve (dir) {
-  return path.join(__dirname, '../..', dir)
+  return path.join(__dirname, '../../source', dir)
 }
 
 module.exports = {
@@ -20,13 +20,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json'],
     modules: [
-      resolve('source'),
       resolve('node_modules')
     ],
     alias: {
-      'source': resolve('source'),
-      'assets': resolve('source/assets'),
-      'components': resolve('source/components')
+      'assets': resolve('assets'),
+      'components': resolve('components')
     }
   },
   module: {
@@ -35,7 +33,7 @@ module.exports = {
         test: /\.(js)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('source'), resolve('test')],
+        include: [resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -43,7 +41,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('source'), resolve('test')]
+        include: [resolve('test')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
