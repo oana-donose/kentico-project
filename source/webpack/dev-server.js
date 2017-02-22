@@ -1,6 +1,6 @@
 require('./check-versions')()
 
-var config = require('../webpack')
+var config = require('./config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
@@ -62,7 +62,7 @@ app.use(hotMiddleware)
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+app.use(staticPath, express.static('./webpack/style-guide-static-assets'))
 
 var uri = 'http://localhost:' + port
 
