@@ -22,16 +22,7 @@ exports.cssLoaders = function (options) {
 
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    var loaders = [cssLoader]
-    if (loader) {
-      loaders.push({
-        loader: loader + '-loader',
-        options: Object.assign({}, loaderOptions, {
-          sourceMap: options.sourceMap
-        })
-      })
-    }
-    loaders = [
+    var loaders = [
       {loader: 'css-loader', options: {sourceMap: true}},
       { loader: 'postcss-loader' },
       {loader: 'sass-loader', options: {sourceMap: true}}
@@ -49,14 +40,8 @@ exports.cssLoaders = function (options) {
   }
 
   return {
-    // style: generateLoaders(),
     css: generateLoaders(),
-    // postcss: generateLoaders(),
-    // less: generateLoaders('less'),
-    // sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass')
-    // stylus: generateLoaders('stylus'),
-    // styl: generateLoaders('stylus')
   }
 }
 
@@ -68,42 +53,8 @@ exports.styleLoaders = function (options) {
     // console.log(extension)
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      // test: '/\\.' + extension + '$/',
       use: loader
     })
   }
-  console.log(JSON.stringify(output))
   return output
-  // return [{
-  //   test: /\.s?css$/,
-  //   loader: ExtractTextPlugin.extract({
-  //     fallbackLoader: 'style-loader',
-  //     loader: [
-  //           { loader: 'css-loader' },
-  //           { loader: 'postcss-loader' },
-  //           { loader: 'sass-loader', options: {} }
-  //     ]
-  //   })
-  // }]
-  // return [
-  //   {
-  //     test: /\.s?css$/,
-  //     use: [
-  //       'style-loader',
-  //       'css-loader?importLoaders=1',
-  //       {
-  //         loader: 'postcss-loader',
-  //         options: {
-  //           plugins: function () {
-  //             return [
-  //               // require('precss'),
-  //               require('autoprefixer')
-  //             ]
-  //           }
-  //         }
-  //       },
-  //       'sass-loader'
-  //     ]
-  //   }
-  // ]
 }

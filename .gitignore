@@ -29,6 +29,7 @@ CMS/[Bb]in/*.dll
 ![Bb]in/*.refresh
 [Oo]bj/
 [Ll]og/
+lcov-report
 
 # Visual Studio 2015 cache/options directory
 .vs/
