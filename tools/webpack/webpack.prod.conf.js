@@ -85,7 +85,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // copy custom static assets
     // new CopyWebpackPlugin([
     //   {
-    //     from: path.resolve(__dirname, '../webpack/style-guide-static-assets'),
+    //     from: path.resolve(__dirname, '../tools/webpack/style-guide-static-assets'),
     //     to: config.build.assetsSubDirectory,
     //     ignore: ['.*']
     //   }

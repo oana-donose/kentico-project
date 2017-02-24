@@ -62,7 +62,7 @@ app.use(hotMiddleware)
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./webpack/style-guide-static-assets'))
+app.use(staticPath, express.static('./tools/webpack/style-guide-static-assets'))
 
 var uri = 'http://localhost:' + port
 
