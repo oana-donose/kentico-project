@@ -1,2 +1,2 @@
-webpack/*.js
-config/*.js
+tools/webpack/*.js
+tools/webpack/config/*.js
