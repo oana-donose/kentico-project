@@ -2,16 +2,16 @@
   "presets": [
     "es2015",
     "stage-2",
-    // "env"
+    "env"
   ],
   "plugins": [['transform-runtime', {
-          helpers: false,
-          polyfill: false,
-          regenerator: true, }]],
+    helpers: false,
+    polyfill: false,
+    regenerator: true, }]],
   "comments": false,
   "env": {
-    // "test": {
-    //   "plugins": [ "istanbul" ]
-    // }
+    "test": {
+      "plugins": [ "istanbul" ]
+    }
   }
 }
