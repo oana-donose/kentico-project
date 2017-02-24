@@ -30,6 +30,8 @@ CMS/[Bb]in/*.dll
 [Oo]bj/
 [Ll]og/
 lcov-report
+**/unit/coverage/
+**/e2e/reports/
 
 # Visual Studio 2015 cache/options directory
 .vs/
