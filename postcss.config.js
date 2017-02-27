@@ -1,7 +1,6 @@
+/* eslint-env node */
 module.exports = {
-  plugins: {
-    autoprefixer: {
-      browsers: ['last 2 versions', '> 1%']
-    }
-  }
-}
+  plugins: [
+    require('autoprefixer')({ /* options come from the browserlist config file */ })
+  ]
+};

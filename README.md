@@ -60,6 +60,14 @@ npm run test
 npm run lint
 ```
 
+### Configuring Webpack & Compiler options
+
+#### Additional browser support
+Browser support is controlled through [Browserslist](https://github.com/ai/browserslist), which is
+used by Autoprefixer for CSS output and Babel for JS output via the [babel-preset-env](https://github.com/babel/babel-preset-env) 
+plugin. Browser support is listed in the `browserslist` file in the root of the repository, and prefixes and shims are added
+according to the browsers listed in that file.
+
 ### Environments / Access Restrictions / HOSTS Entries
 
 At present, we have two environments:
