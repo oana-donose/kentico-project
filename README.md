@@ -23,30 +23,39 @@ This version uses Webpack to compile Front-End assets.  It has support for:
 ### Compiling assets
 
 #### First Run:
+Install the dependencies using `npm install`
 
 ```
-cd source
 npm install
 ```
 
 #### Compiling for production
+Compile Production assets using `npm run build`. This will do a single-run compile of the assets in `/source` to `/CMS/assets/`.
 
 ```
-cd source
 npm run build
 ```
 
 #### Compiling for development
+A development version of the assets can be built with compilation-on-change by running `npm run dev`, which will start a Development
+server on localhost with hot-module-reloading and a dev-facing styleguide for rapid previewing.
 
 ```
-cd source
 npm run dev
 ```
 
 #### Running Tests
+E2E tests via Nightwatch.js and Unit tests via Karma + MochaJS are supported out of the box. Run them individually via `npm run unit`
+or `npm run e2e`, or run them both with `npm run test`. ESLint testing is supported via `npm run lint`, with most settings tuned down
+to just warnings, for the sake of sanity.
 
 ```
-cd source
+npm run unit
+npm run e2e
+npm run lint
+```
+or 
+```
 npm run test
 npm run lint
 ```
