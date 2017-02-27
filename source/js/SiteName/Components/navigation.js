@@ -1,12 +1,12 @@
-class Navigation {
-    constructor() {
-        this.container = document.querySelector('#gh-mainNav');
-        this.container.classList.add('js');
+export class Navigation {
+  constructor () {
+    this.container = document.querySelector('#gh-mainNav');
+    this.container.classList.add('js');
 
-        this.setupEvents();
-    }
+    this.setupEvents();
+  }
 
-    setupEvents() {
-        
-    }
+  setupEvents () {
+
+  }
 }
