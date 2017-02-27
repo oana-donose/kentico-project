@@ -11,8 +11,8 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "build": "grunt dist --gruntfile tools/grunt/Gruntfile.js",
-    "test": "grunt karma --gruntfile tools/grunt/Gruntfile.js"
+    "build": "grunt dist --gruntfile tools/grunt/gruntfile.js",
+    "test": "grunt karma --gruntfile tools/grunt/gruntfile.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
