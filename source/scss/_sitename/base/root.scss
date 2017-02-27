@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+html, * {
+  font-family: Myriad-Pro, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+[class^='ico-'], [class*=' ico-'] {
+  &:before {
+    font-family: Icons;
+  }
+}
