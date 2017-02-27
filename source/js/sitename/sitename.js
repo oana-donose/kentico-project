@@ -1,8 +1,8 @@
-import '../../scss/SiteName/sitename.scss';
+import '../../scss/sitename/sitename.scss';
 
 // console.log('The JavaScript has loaded.');
 
-import {Navigation} from './Components/navigation';
+import {Navigation} from './components/navigation';
 
 export class SiteName {
   constructor () {
