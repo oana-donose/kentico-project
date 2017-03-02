@@ -5,6 +5,7 @@
   "author": "James Ford <<james.f@mmtdigital.co.uk>>",
   "private": true,
   "scripts": {
+    "start": "npm run dev",
     "dev": "node tools/webpack/dev-server.js",
     "build": "node tools/webpack/build.js",
     "unit": "cross-env BABEL_ENV=test karma start tools/test/unit/karma.conf.js --single-run",
