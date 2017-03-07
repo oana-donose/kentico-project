@@ -1,31 +1,32 @@
-var path = require('path')
-var config = require('./config')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path              = require('path');
+const config            = require('./config');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
+  const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
-}
+};
 
-exports.cssLoaders = function (options) {
-  options = options || {}
+exports.cssLoaders = function (options = {}) {
+  //options = options || {}
 
-  var cssLoader = {
-    loader: 'css-loader',
-    options: {
-      minimize: process.env.NODE_ENV === 'production',
-      sourceMap: options.sourceMap
-    }
-  }
+  //var cssLoader = {
+  //  loader: 'css-loader',
+  //  options: {
+  //    minimize: process.env.NODE_ENV === 'production',
+  //    sourceMap: options.sourceMap
+  //  }
+  //}
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     var loaders = [
       {loader: 'css-loader', options: {sourceMap: true}},
-      { loader: 'postcss-loader' },
-      {loader: 'sass-loader', options: {sourceMap: true}}
+      //{loader: 'webfonts-loader'},
+      {loader: 'postcss-loader'},
+      {loader: 'sass-loader', options: {sourceMap: true}},
     ]
 
     // Extract CSS when that option is specified
@@ -35,25 +36,25 @@ exports.cssLoaders = function (options) {
         use: loaders
       })
     } else {
-      return [ {loader: 'style-loader'} ].concat(loaders)
+      return [{loader: 'style-loader'}].concat(loaders)
     }
   }
 
   return {
-    css: generateLoaders(),
+    css : generateLoaders(),
     scss: generateLoaders('sass')
   }
 }
 
 exports.styleLoaders = function (options) {
-  var output = []
+  var output  = []
   var loaders = exports.cssLoaders(options)
   for (var extension in loaders) {
     var loader = loaders[extension]
     // console.log(extension)
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      use: loader
+      use : loader
     })
   }
   return output

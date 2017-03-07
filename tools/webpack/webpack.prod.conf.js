@@ -21,8 +21,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('../../CMS/assets/js/sitename/[name].js'),
-    chunkFilename: utils.assetsPath('../../CMS/assets/js/sitename/[id].js')
+    filename: utils.assetsPath('js/sitename/[name].js'),
+    chunkFilename: utils.assetsPath('js/sitename/[id].js')
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -36,7 +36,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('../../CMS/assets/css/sitename/[name].css')
+      filename: 'css/sitename/[name].css'
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
