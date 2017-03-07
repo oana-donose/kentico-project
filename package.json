@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "start": "npm run dev",
-    "dev": "node tools/webpack/dev-server.js",
-    "build": "node tools/webpack/build.js",
+    "dev": "node tools/webfonts/index.js && node tools/webpack/dev-server.js",
+    "build": "node tools/webfonts/index.js && node tools/webpack/build.js",
     "unit": "cross-env BABEL_ENV=test karma start tools/test/unit/karma.conf.js --single-run",
     "e2e": "node tools/test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -74,6 +74,7 @@
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "webfonts-generator": "^0.4.0",
     "webfonts-loader": "github:jeerbl/webfonts-loader",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.2.1",
