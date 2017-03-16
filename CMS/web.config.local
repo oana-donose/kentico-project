@@ -31,7 +31,10 @@
     
     <!-- Default Culture -->
     <add key="CMSDefaultUICulture" value="en-GB"/>
-
+	
+	<!--Kentico CI Key - used from hotfix 11 onwards -->
+	<add key="CMSCIEncoding" value="utf-8" />
+	
     <!-- EMS -->
     <add key="CMSUseSessionCookies" value="true"/>
     <add key="CMSWebAnalyticsSlidingIPExpiration" value="false"/>
