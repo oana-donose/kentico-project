@@ -5,5 +5,5 @@
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyVersion("10.0.0.0")]
-[assembly: AssemblyFileVersion("10.0.6264.13584")]
-[assembly: AssemblyInformationalVersion("10.0.11")]
+[assembly: AssemblyFileVersion("10.0.6278.41804")]
+[assembly: AssemblyInformationalVersion("10.0.13")]
