@@ -1,6 +1,28 @@
 @font-face {
-  font-family: 'Icons';
-  src: url('#{$font-path}/icons/icons.woff') format("woff");
-  font-weight: normal;
-  font-style: normal;
+	font-family: "sitename-icons";
+	src: url("/fonts/sitename-icons.eot?55e938696559c05696d1d618779b71ae?#iefix") format("embedded-opentype"),
+url("/fonts/sitename-icons.woff2?55e938696559c05696d1d618779b71ae") format("woff2"),
+url("/fonts/sitename-icons.woff?55e938696559c05696d1d618779b71ae") format("woff");
+}
+
+@if not variable-exists('webfont-icons') {
+	$webfont-icons: () !global;
+}
+
+$webfont-icons: map-merge($webfont-icons, (
+		'dinnerplate': ('sitename-icons' 'f101'),
+		'microwave': ('sitename-icons' 'f102'),
+));
+
+@mixin webfont-icon($name) {
+	line-height: 1;
+
+	$icon: map-get($webfont-icons, $name);
+	&:before {
+		font-family: nth($icon, 1) !important;
+		font-style: normal;
+		font-weight: normal !important;
+		vertical-align: top;
+		content: str-slice('\x', 1, 1) + nth($icon, 2);
+	}
 }

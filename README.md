@@ -30,19 +30,40 @@ npm install
 ```
 
 #### Compiling for production
-Compile Production assets using `npm run build`. This will do a single-run compile of the assets in `/source` to `/CMS/assets/`.
+Compile Production assets using `npm run build`. This will do a single-run compile of the assets in `/source` and 
+ouput them to `/CMS/assets/`.
 
 ```
 npm run build
 ```
 
-#### Compiling for development
-A development version of the assets can be built with compilation-on-change by running `npm run dev`, which will start a Development
-server on localhost with hot-module-reloading and a dev-facing styleguide for rapid previewing.
+#### Compiling for local development
+A development version of the assets can be built with compilation-on-change by running `npm run dev` or `npm start` 
+which will start a local proxy server using BrowserSync and will proxy your local Kentico instance on localhost:3000
+and automatically refresh the page on change.
 
+```
+npm start
+```
+or 
 ```
 npm run dev
 ```
+Note: Don't edit Kentico through the localhost:3000 proxy, because it can randomly refresh the interface and confuse 
+Kentico over multiple tabs.
+
+#### Running a standalone Styleguide / local development server
+The command `npm run styleguide` will start a simple Node.js server on localhost:8080 with hot-module-reloading and a 
+dev-facing styleguide for rapid previewing. This will not output production assets and does not rely on a working 
+Kentico instance.
+
+```
+npm run styleguide
+```
+
+#### Generating webfonts
+Run the command `node tools/webfonts/index.js` to manually generate a webfont. Fonts are not generated or updated
+automatically.
 
 #### Running Tests
 E2E tests via Nightwatch.js and Unit tests via Karma + MochaJS are supported out of the box. Run them individually via `npm run unit`
