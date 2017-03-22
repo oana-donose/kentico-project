@@ -632,6 +632,28 @@
             </summary>
             <returns>Configuration part with excluded object types as a string</returns>
         </member>
+        <member name="M:CMS.ContinuousIntegration.EncodingConfiguration.CreateEncoding(System.String)">
+            <summary>
+            Gets encoding according to <paramref name="encodingName"/>.
+            </summary>
+            <exception cref="T:CMS.ContinuousIntegration.RepositoryConfigurationException">Thrown when <paramref name="encodingName"/> does not represent a valid encoding name.</exception>
+        </member>
+        <member name="P:CMS.ContinuousIntegration.EncodingConfiguration.DefaultEncoding">
+            <summary>
+            Gets encoding to be used when no <see cref="P:CMS.ContinuousIntegration.EncodingConfiguration.EncodingName"/> is provided.
+            </summary>
+        </member>
+        <member name="P:CMS.ContinuousIntegration.EncodingConfiguration.EncodingName">
+            <summary>
+            Gets encoding name specified in the application's configuration, if provided.
+            </summary>
+        </member>
+        <member name="P:CMS.ContinuousIntegration.EncodingConfiguration.Encoding">
+            <summary>
+            Gets encoding to be used for repository files content.
+            </summary>
+            <exception cref="T:CMS.ContinuousIntegration.RepositoryConfigurationException">Thrown when <see cref="P:CMS.ContinuousIntegration.EncodingConfiguration.EncodingName"/> does not represent a valid encoding name.</exception>
+        </member>
         <member name="T:CMS.ContinuousIntegration.Internal.AbstractFileSystemAllJob">
             <summary>
             Abstract class incorporating behavior same for all all-jobs.
@@ -3994,6 +4016,18 @@
             <param name="relativePath">Relative path to the file.</param>
             <param name="hashAlgorithm">Hash algorithm that is used by CryptoStream.</param>
             <returns>CryptoStream for writing to the file with given relative path.</returns>
+        </member>
+        <member name="M:CMS.ContinuousIntegration.FileSystemWriter.WriteFormattedXmlToStream(System.Xml.XmlDocument,System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Writes formatted XML content to given stream.
+            </summary>
+            <remarks>
+            Ensures indentation and line breaking after each element.
+            </remarks>
+            <param name="document">XML document</param>
+            <param name="stream">The stream to write to.</param>
+            <param name="encoding">Encoding to be used when writing the content to stream.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="document"/> is null.</exception>
         </member>
         <member name="T:CMS.ContinuousIntegration.Internal.FileSystemDeleteJobFactory">
             <summary>

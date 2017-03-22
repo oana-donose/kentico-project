@@ -1080,7 +1080,8 @@
         </member>
         <member name="M:CMS.ContactManagement.IContactMergeService.MergeContactByEmail(CMS.ContactManagement.ContactInfo)">
             <summary>
-            Tries to merge given <paramref name="contact"/> by <see cref="P:CMS.ContactManagement.ContactInfo.ContactEmail"/>. Moves activities, memberships, relations and copies contact's data. 
+            Tries to merge given <paramref name="contact"/> by <see cref="P:CMS.ContactManagement.ContactInfo.ContactEmail"/>. Moves subscriptions and copies contact's data. 
+            In the case the EMS license is available, moves activities, memberships, relations and copies contact's data. 
             Given <paramref name="contact"/> will be used as merge target, i.e. this particular <see cref="T:CMS.ContactManagement.ContactInfo"/> will remain, while others with the same <see cref="P:CMS.ContactManagement.ContactInfo.ContactEmail"/>
             will be merged to the <paramref name="contact"/>.
             </summary>
@@ -1092,8 +1093,8 @@
         </member>
         <member name="M:CMS.ContactManagement.IContactMergeService.MergeContacts(CMS.ContactManagement.ContactInfo,CMS.ContactManagement.ContactInfo)">
             <summary>
-            Merges given <paramref name="source"/> contact to the <paramref name="target"/>. Moves activities, memberships, copies data and set the 
-            <paramref name="target"/> as currect contact to the response cookie.
+            Merges given <paramref name="source"/> contact to the <paramref name="target"/>. Moves subscriptions and copies contact's data. 
+            In the case the EMS license is available, moves activities, memberships and relations.
             </summary>
             <remarks>
             Does not set the result of merge to the current context or store the GUID in response cookie. If the result should be somehow
@@ -1104,7 +1105,8 @@
         </member>
         <member name="M:CMS.ContactManagement.ContactMergeService.MergeContacts(CMS.ContactManagement.ContactInfo,CMS.ContactManagement.ContactInfo)">
             <summary>
-            Merges given <paramref name="source"/> contact to the <paramref name="target"/>. Moves activities, memberships, relations and copies contact's data.
+            Merges given <paramref name="source"/> contact to the <paramref name="target"/>. Moves subscriptions and copies contact's data. 
+            In the case the EMS license is available, moves activities, memberships and relations.
             </summary>
             <remarks>
             Does not set the result of merge to the current context or store the GUID in response cookie. If the result should be somehow
@@ -1116,7 +1118,8 @@
         </member>
         <member name="M:CMS.ContactManagement.ContactMergeService.MergeContactByEmail(CMS.ContactManagement.ContactInfo)">
             <summary>
-            Tries to merge given <paramref name="contact"/> by <see cref="P:CMS.ContactManagement.ContactInfo.ContactEmail"/>. Moves activities, memberships, relations and copies contact's data. 
+            Tries to merge given <paramref name="contact"/> by <see cref="P:CMS.ContactManagement.ContactInfo.ContactEmail"/>. Moves subscriptions and copies contact's data. 
+            In the case the EMS license is available, moves activities, memberships, relations and copies contact's data. 
             Given <paramref name="contact"/> will be used as merge target, i.e. this particular <see cref="T:CMS.ContactManagement.ContactInfo"/> will remain, while others with the same <see cref="P:CMS.ContactManagement.ContactInfo.ContactEmail"/>
             will be merged to the <paramref name="contact"/>.
             </summary>

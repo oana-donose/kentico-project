@@ -5,3 +5,10 @@
    at System.IO.FileSystemEnumerableIterator`1.CommonInit()
    at System.IO.DirectoryInfo.InternalGetFiles(String searchPattern, SearchOption searchOption)
    at FiftyOne.Foundation.Mobile.Detection.WebProvider.CleanTemporaryFiles()
+2017-03-16T16:42:08.0610028Z - 22736 - Warn - Exception cleaning temporary files
+2017-03-16T16:42:08.0680290Z - 22736 - Warn - 
+2017-03-16T16:42:08.0680290Z - 22736 - Warn - Could not find a part of the path 'D:\MMT\Repositories\KenticoRepos\mmtdigital_kentico10_template\CMS\App_Data\51Degrees'.
+2017-03-16T16:42:08.0710002Z - 22736 - Warn -    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.DirectoryInfo.InternalGetFiles(String searchPattern, SearchOption searchOption)
+   at FiftyOne.Foundation.Mobile.Detection.WebProvider.CleanTemporaryFiles()
