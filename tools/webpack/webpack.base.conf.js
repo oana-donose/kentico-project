@@ -1,6 +1,7 @@
-const path   = require('path');
-const utils  = require('./utils');
-const config = require('./config');
+const path    = require('path');
+const utils   = require('./utils');
+const config  = require('./config');
+const webpack = require('webpack');
 
 function resolve(dir) {
   return path.join(__dirname, '../..', dir)
@@ -20,8 +21,17 @@ module.exports = {
     modules   : [
       resolve('node_modules')
     ],
-    alias     : {}
+    alias     : {
+      jquery: "jquery/src/jquery"
+    }
   },
+  plugins: [
+    // makes jQuery available to every script file.
+    new webpack.ProvidePlugin({
+      $     : "jquery",
+      jQuery: "jquery"
+    })
+  ],
   module : {
     rules: [
       {

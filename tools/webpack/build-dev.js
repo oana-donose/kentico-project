@@ -6,21 +6,23 @@ var ora = require('ora')
 var chalk = require('chalk')
 var webpack = require('webpack')
 var config = require('./config')
-var webpackConfig = require('./webpack.dev.conf.js')
+var webpackConfig = require('./webpack.dev.conf')
 
 var spinner = ora('building for development...')
 spinner.start()
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
-  if (err) throw err
+  if (err) {
+    throw err
+  }
   process.stdout.write(stats.toString({
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false
-  }) + '\n\n')
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    }) + '\n\n')
 
   console.log(chalk.cyan('  Build complete.\n'))
   console.log(chalk.yellow(

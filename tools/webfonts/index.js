@@ -1,16 +1,14 @@
 const path              = require('path');
+const glob              = require("glob");
 const webfontsGenerator = require('webfonts-generator');
 
 webfontsGenerator({
-  files       : [
-    path.resolve(__dirname, '../../source/icons/sitename/dinnerplate.svg'),
-    path.resolve(__dirname, '../../source/icons/sitename/microwave.svg'),
-  ],
-  fontName    : 'sitename-icons',
-  cssFontsUrl: '/fonts',
-  dest        : path.resolve(__dirname, '../../source/fonts'),
-  cssDest     : path.resolve(__dirname, '../../source/scss/sitename/fonts/', 'icons.scss'),
-  cssTemplate : webfontsGenerator.templates.scss,
+  files      : glob.sync(path.resolve(__dirname, '../../source/icons/sitename/*.svg')),
+  fontName   : 'sitename-icons',
+  cssFontsUrl: '/assets/fonts',
+  dest       : path.resolve(__dirname, '../../CMS/assets/fonts'),
+  cssDest    : path.resolve(__dirname, '../../source/scss/sitename/fonts/', 'icons.scss'),
+  cssTemplate: 'tools/webfonts/template.hbs'
 }, function (error) {
   if (error) {
     console.log('Fail!', error);
