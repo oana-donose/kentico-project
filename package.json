@@ -12,7 +12,9 @@
     "unit": "cross-env BABEL_ENV=test karma start tools/test/unit/karma.conf.js --single-run",
     "e2e": "node tools/test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js source/js tools/test/unit/specs tools/test/e2e/specs",
+    "lint": "standard \"source/js/**/*.js\" \"tools/test/unit/specs/**/*.js\" \"tools/test/e2e/specs/**/*.js\"",
+    "autofix": "standard --fix \"source/js/**/*.js\" \"tools/test/unit/specs/**/*.js\" \"tools/test/e2e/specs/**/*.js\"",
+    "precommit": "npm run autofix",
     "webfont": "node tools/webfonts/index.js"
   },
   "devDependencies": {
@@ -52,6 +54,7 @@
     "glob": "^7.1.1",
     "html-webpack-plugin": "^2.28.0",
     "http-proxy-middleware": "^0.17.3",
+    "husky": "^0.13.2",
     "inject-loader": "^2.0.1",
     "jquery": "^3.2.1",
     "karma": "^1.4.1",
@@ -78,6 +81,7 @@
     "semver": "^5.3.0",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
+    "standard": "^9.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webfonts-generator": "^0.4.0",

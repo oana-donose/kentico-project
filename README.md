@@ -1,15 +1,15 @@
-# SiteName website - WORKING PROGRESS 17/01/2017
+# SiteName website - WORKING PROGRESS 24/03/2017
 
-![http://www.kentico.com/getattachment/Product/Kentico-10/Facebook-Kentico-10-LP-1200x630-px.png?lang=en-US](Kentico 10)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ### Background
 
-SiteName is a ... 
+SiteName is a ...
 
 ## Getting Started
 
 ### Front-end dependencies
-You will need the following software packages installed in order to compile all front-end assets. 
+You will need the following software packages installed in order to compile all front-end assets.
 This includes things such as SASS, JavaScript, etc. If the site ever looks a little weird, always make sure you have compiled the front-end assets.
 
 * [NodeJS (minimum version 4.0)](https://nodejs.org/en/)
@@ -30,7 +30,7 @@ npm install
 ```
 
 #### Compiling for production
-Compile Production assets using `npm run build`. This will do a single-run compile of the assets in `/source` and 
+Compile Production assets using `npm run build`. This will do a single-run compile of the assets in `/source` and
 ouput them to `/CMS/assets/`.
 
 ```
@@ -38,23 +38,23 @@ npm run build
 ```
 
 #### Compiling for local development
-A development version of the assets can be built with compilation-on-change by running `npm run dev` or `npm start` 
+A development version of the assets can be built with compilation-on-change by running `npm run dev` or `npm start`
 which will start a local proxy server using BrowserSync and will proxy your local Kentico instance on localhost:3000
 and automatically refresh the page on change.
 
 ```
 npm start
 ```
-or 
+or
 ```
 npm run dev
 ```
-Note: Don't edit Kentico through the localhost:3000 proxy, because it can randomly refresh the interface and confuse 
+Note: Don't edit Kentico through the localhost:3000 proxy, because it can randomly refresh the interface and confuse
 Kentico over multiple tabs.
 
 #### Running a standalone Styleguide / local development server
-The command `npm run styleguide` will start a simple Node.js server on localhost:8080 with hot-module-reloading and a 
-dev-facing styleguide for rapid previewing. This will not output production assets and does not rely on a working 
+The command `npm run styleguide` will start a simple Node.js server on localhost:8080 with hot-module-reloading and a
+dev-facing styleguide for rapid previewing. This will not output production assets and does not rely on a working
 Kentico instance.
 
 ```
@@ -75,7 +75,7 @@ npm run unit
 npm run e2e
 npm run lint
 ```
-or 
+or
 ```
 npm run test
 npm run lint
@@ -85,7 +85,7 @@ npm run lint
 
 #### Additional browser support
 Browser support is controlled through [Browserslist](https://github.com/ai/browserslist), which is
-used by Autoprefixer for CSS output and Babel for JS output via the [babel-preset-env](https://github.com/babel/babel-preset-env) 
+used by Autoprefixer for CSS output and Babel for JS output via the [babel-preset-env](https://github.com/babel/babel-preset-env)
 plugin. Browser support is listed in the `browserslist` file in the root of the repository, and prefixes and shims are added
 according to the browsers listed in that file.
 
@@ -106,7 +106,7 @@ For local development, you'll need to add the following host entry to your local
 ```
 ### Development Workflow & Deployment
 #### Tools
-* StoriesOnBoard: 
+* StoriesOnBoard:
 * Pivotal Tracker: https://www.pivotaltracker.com/n/projects/1953429
 
 #### GIT Workflow / Branches
