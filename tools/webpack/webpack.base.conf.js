@@ -35,15 +35,6 @@ module.exports = {
   module : {
     rules: [
       {
-        test   : /\.(js)$/,
-        loader : 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('source')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
-      {
         test   : /\.js$/,
         loader : 'babel-loader',
         include: [resolve('source')]
