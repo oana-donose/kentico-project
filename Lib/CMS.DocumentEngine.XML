@@ -16027,6 +16027,16 @@
             Constructor - Creates a new RelationshipInfo object from the given DataRow.
             </summary>
         </member>
+        <member name="M:CMS.DocumentEngine.RelationshipInfo.CheckPermissionsInternal(CMS.DataEngine.PermissionsEnum,System.String,CMS.Base.IUserInfo,System.Boolean)">
+            <summary>
+            Checks whether the specified user has permissions for this object. This method is called automatically after CheckPermissions event was fired.
+            </summary>
+            <param name="permission">Permission to perform this operation will be checked</param>
+            <param name="siteName">Permissions on this site will be checked</param>
+            <param name="userInfo">Permissions of this user will be checked</param>
+            <param name="exceptionOnFailure">If true, PermissionCheckException is thrown whenever a permission check fails</param>
+            <returns>True if user is allowed to perform specified operation on the this object; otherwise false</returns>
+        </member>
         <member name="P:CMS.DocumentEngine.RelationshipInfo.RelationshipOrder">
             <summary>
             Relationship order. Returns 0 for standard relationships which cannot be sorted. Only ah-hoc relationships can be sorted.
