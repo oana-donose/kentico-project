@@ -1,6 +1,18 @@
 # SiteName website - WORKING PROGRESS 24/03/2017
 
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+## Table of Contents
+
+- [Background](#background)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Development Workflow](#development-workflow)
+- [Security](#security)
+- [Maintainers](#maintainers)
+- [Contribute](#contribute)
+- [License](#license)
 
 ### Background
 
@@ -8,17 +20,40 @@ SiteName is a ...
 
 ## Getting Started
 
+### Machine/Server dependencies
+* .Net Framework 4.6
+* Visual Studio 2015 (for C# development)
+
+### SQL Server dependencies
+* SQL Server 13 (Comes with MSSQL 2016 installer) - Free as part of Visual Studio Dev Essentials using this link: https://www.microsoft.com/en-gb/sql-server/sql-server-editions-developers
+* SQL Server Management Studio 2016 - Download using the standalone installer using this link: https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms
+* SQL Authentication enabled on the local instance (Mixed Mode)
+* Local user created for the database
+
+### IIS dependencies
+* IIS 7 and above
+* Local IIS Certificate
+
+### Kentico depenencies
+* Understanding of how Kentico CI Works
+* Understanding of how pull requests work
+* CMS folder on the repository has IIS_IUSRS OR Specific Application Pool user access
+
 ### Front-end dependencies
 You will need the following software packages installed in order to compile all front-end assets.
 This includes things such as SASS, JavaScript, etc. If the site ever looks a little weird, always make sure you have compiled the front-end assets.
 
-* [NodeJS (minimum version 4.0)](https://nodejs.org/en/)
+* Node version 6 (recommended) [NodeJS (minimum version 4.0)](https://nodejs.org/en/)
+* Grunt installed globally
+* Font Forge installed locally - Use the following link: https://fontforge.github.io/en-US/downloads/
 
 This version uses Webpack to compile Front-End assets.  It has support for:
 
 * SASS
 * PostCSS + Autoprefixer
 * Babel + ES6 JavaScript
+
+## Usage
 
 ### Compiling assets
 
@@ -89,6 +124,8 @@ used by Autoprefixer for CSS output and Babel for JS output via the [babel-prese
 plugin. Browser support is listed in the `browserslist` file in the root of the repository, and prefixes and shims are added
 according to the browsers listed in that file.
 
+## Development Workflow
+
 ### Environments / Access Restrictions / HOSTS Entries
 
 At present, we have two environments:
@@ -104,7 +141,7 @@ For local development, you'll need to add the following host entry to your local
 ```sh
 127.0.0.1      local.sitename.co.uk
 ```
-### Development Workflow & Deployment
+
 #### Tools
 * StoriesOnBoard:
 * Pivotal Tracker: https://www.pivotaltracker.com/n/projects/1953429
@@ -148,38 +185,17 @@ Within `sitename/CMS`, you'll find a `web.config.dev` which you'll need to copy 
 #### IIS Extensions
 We are making use of IIS's URL Rewrite Module (2.0) to redirect non-HTTP traffic to HTTPS. If you do not have this installed already, the site will not work properly, so you'll need to download and install directly from Microsoft's website: http://www.iis.net/downloads/microsoft/url-rewrite
 
+## Security
+IP Restrictions
 
-# Generic MMT Structure Information
+## Maintainers
 
-## sitename Group Grunt folder structure
+## Contribute
 
-This grunt structure has been built using the MMT Digital boilerplate (https://bitbucket.org/mmtdigital/mmt-digital-grunt-structure/overview) and makes a few assumptions with regards to your assets folder structure. Please change these to suit the project.
+PRs accepted.
 
-Source files exist __*outside*__ of the web solution and only their compiled output is packaged along with each site build (generally handled as part of your continuous deployment process).
+Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
+## License
 
-    |-- sitename_exp001-kenticowebsite
-		|-- website
-			|-- source
-				|-- scss
-				|-- js
-				|-- img
-				|-- icons    // SVG icons for use in a webfont
-			|-- CMS
-					|-- assets    // Grunt outputs compiled assets here
-						|-- css
-						|-- js
-						|-- img
-						|-- fonts
-					|-- App_Code
-					|-- ...
-					|-- ...
-					|-- SiteWebParts
-					|-- etc
-			|-- tools
-				|-- grunt
-					|-- Gruntfile.js
-			|-- package.json
-
-##Database connection string
-The web.config.local should be used for development purpose. However, to make sure that the repo does not have any credentials, the developers will have to contact the autodots to  get the connection string details.
+ © MMT Digital
