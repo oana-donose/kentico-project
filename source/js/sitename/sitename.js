@@ -1,7 +1,10 @@
-console.log("The JavaScript has loaded");
+import '../../scss/sitename/sitename.scss'
+import '../../icons/sitename/icon.font'
+// console.log('The JavaScript has loaded.');
+// import { Navigation } from "./components/navigation";
 
-class SiteName {
-    constructor() {
-        new Navigation();
-    }
+export class SiteName {
+  // constructor () {
+    // new Navigation();
+  // }
 }

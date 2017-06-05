@@ -4,8 +4,9 @@
 @import 'variables/paths';
 // Mixins
 @import 'mixins/general';
+@import 'mixins/easing';
 // Fonts
-@import 'fonts/icons';
+// @import 'fonts/icons';
 // Base
 @import 'base/reset';
 @import 'base/root';

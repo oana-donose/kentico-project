@@ -4069,5 +4069,10 @@
             </summary>
             <param name="parameters">Parameters array</param>
         </member>
+        <member name="M:CMS.OnlineMarketing.OnlineMarketingModule.GetTruncatedName(System.String)">
+            <summary>
+            Returns name trimmed to 100 chars. If the string is shorter, returns the same string.
+            </summary>
+        </member>
     </members>
 </doc>

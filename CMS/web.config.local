@@ -47,9 +47,8 @@
     <add key="CMSLogNewsletterIssueEvents" value="false"/>
   </appSettings>
   <connectionStrings>
-    <clear/>
-	<add name="CMSConnectionString"
-	  connectionString="Data Source=AskTheAutodots;Initial Catalog=AskTheAutodots;Integrated Security=False;User ID=AskTheAutodots;Password=AskTheAutodots;Connect Timeout=60"/>
+    <clear/> 
+	<!--<add name="CMSConnectionString" connectionString="Data Source=AskTheAutodots;Initial Catalog=AskTheAutodots;Integrated Security=False;User ID=AskTheAutodots;Password=AskTheAutodots;Connect Timeout=60"/>-->
   </connectionStrings>
   <system.web>
     <pages validateRequest="false" clientIDMode="AutoID">

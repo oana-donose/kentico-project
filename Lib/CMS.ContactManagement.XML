@@ -3497,6 +3497,16 @@
             Sets campaign, geolocation and creation time to a new contact
             </summary>
         </member>
+        <member name="M:CMS.ContactManagement.ContactInfoProvider.GetTruncatedName(System.String)">
+            <summary>
+            Returns name trimmed to 100 chars. If the string is shorter, returns the same string.
+            </summary>
+        </member>
+        <member name="M:CMS.ContactManagement.ContactInfoProvider.ContactFieldCanBeModified(System.Boolean,CMS.ContactManagement.ContactInfo,CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Returns true if contact's field can be modified.
+            </summary>
+        </member>
         <member name="T:CMS.ContactManagement.ContactListInfo">
             <summary>
             "Virtual" object for loading data from contact view.
