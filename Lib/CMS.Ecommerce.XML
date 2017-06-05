@@ -16008,6 +16008,11 @@
             Registers the properties of this object
             </summary>
         </member>
+        <member name="M:CMS.Ecommerce.ShoppingCartItemInfo.GetParent">
+            <summary>
+            Returns the parent object.
+            </summary>
+        </member>
         <member name="P:CMS.Ecommerce.ShoppingCartItemInfo.CartItemID">
             <summary>
             Shopping cart item ID.
