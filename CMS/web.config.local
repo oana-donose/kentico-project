@@ -42,6 +42,7 @@
     <add key="CMSWebAnalyticsShowFullData" value="false"/>
     <add key="CMSProcessContactActionsInterval" value="30"/>
     <add key="CMSEnableContactBots" value="false"/>
+	<add key="CMSAllowOnlySimpleMacros" value="false"/>
     <add key="CMSWebAnalyticsRemoveReferralQuery" value="false"/>
     <add key="CMSLogMATransitions" value="false"/>
     <add key="CMSLogNewsletterIssueEvents" value="false"/>
