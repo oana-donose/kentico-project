@@ -75,6 +75,7 @@
     </pages>
     <customErrors mode="RemoteOnly">
       <error statusCode="500" redirect="~/CMSMessages/Error.aspx"/>
+	  <error statusCode="503" redirect="~/CMSMessages/CustomError.aspx" />
     </customErrors>
     <authentication mode="Forms">
       <forms loginUrl="CMSPages/logon.aspx" defaultUrl="Default.aspx" name=".ASPXFORMSAUTH" timeout="60000" slidingExpiration="true"/>
