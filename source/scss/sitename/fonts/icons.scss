@@ -1,28 +1,41 @@
 @font-face {
-	font-family: "sitename-icons";
-	src: url("/fonts/sitename-icons.eot?55e938696559c05696d1d618779b71ae?#iefix") format("embedded-opentype"),
-url("/fonts/sitename-icons.woff2?55e938696559c05696d1d618779b71ae") format("woff2"),
-url("/fonts/sitename-icons.woff?55e938696559c05696d1d618779b71ae") format("woff");
+font-family: "sitename-icons";
+src: url("/assets/fonts/sitename-icons.eot?aff89e30d634155e50e026e2cdb7c6b4?#iefix") format("embedded-opentype"),
+url("/assets/fonts/sitename-icons.woff2?aff89e30d634155e50e026e2cdb7c6b4") format("woff2"),
+url("/assets/fonts/sitename-icons.woff?aff89e30d634155e50e026e2cdb7c6b4") format("woff");
 }
 
 @if not variable-exists('webfont-icons') {
-	$webfont-icons: () !global;
+$webfont-icons: () !global;
 }
 
 $webfont-icons: map-merge($webfont-icons, (
-		'dinnerplate': ('sitename-icons' 'f101'),
-		'microwave': ('sitename-icons' 'f102'),
+  'dinnerplate': ('sitename-icons' '\f101'),
+  'microwave': ('sitename-icons' '\f102'),
 ));
 
-@mixin webfont-icon($name) {
-	line-height: 1;
+@mixin webfont-icon-before($name) {
+  line-height: 1;
 
-	$icon: map-get($webfont-icons, $name);
-	&:before {
-		font-family: nth($icon, 1) !important;
-		font-style: normal;
-		font-weight: normal !important;
-		vertical-align: top;
-		content: str-slice('\x', 1, 1) + nth($icon, 2);
-	}
+  $icon: map-get($webfont-icons, $name);
+  &:before {
+    font-family: nth($icon, 1) !important;
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+    content: nth($icon, 2);
+  }
+}
+
+@mixin webfont-icon-after($name) {
+  line-height: 1;
+
+  $icon: map-get($webfont-icons, $name);
+  &:after {
+    font-family: nth($icon, 1) !important;
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+    content: nth($icon, 2);
+  }
 }
