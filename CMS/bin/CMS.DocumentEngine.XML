@@ -1336,6 +1336,17 @@
             <param name="maxRecords">Maximum number of records to get</param>
             <param name="totalRecords">Returning total number of records</param>
         </member>
+        <member name="M:CMS.DocumentEngine.DocumentAttachmentCollection.Clone">
+            <summary>
+            Creates the clone of the collection.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.DocumentAttachmentCollection.CopyPropertiesTo(CMS.DataEngine.IInfoObjectCollection)">
+            <summary>
+            Copies the properties of this collection to the other collection
+            </summary>
+            <param name="col">Target collection</param>
+        </member>
         <member name="P:CMS.DocumentEngine.DocumentAttachmentCollection.ParentDocument">
             <summary>
             Parent document.

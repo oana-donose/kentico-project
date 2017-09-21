@@ -472,12 +472,12 @@ public partial class CMSAdminControls_Validation_HTMLValidator : DocumentValidat
 
                     // Update the second (~ highlighted) part
                     var partList = parts as List<string>;
-                    partList[1] = $"<strong class=\"{messageType.ToStringRepresentation()}\">{partList[1]}</strong>";
+                    partList[1] = String.Format("<strong class=\"{0}\">{1}</strong>", messageType.ToStringRepresentation(), partList[1]);
 
                     source = String.Concat(parts);
                     source = source.Replace("\n", LINE_BREAK_SIGN);
 
-                    return $@"<div class=""Source"">{source}</div>";
+                    return String.Format(@"<div class=""Source"">{0}</div>", source);
 
                 case "message":
                     return HttpUtility.HtmlEncode(parameter);
